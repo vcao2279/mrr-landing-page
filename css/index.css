@@ -137,6 +137,7 @@ html {
 }
 
 /* MOBILE VIEW */
+/**************** HEADER ******************/
 body {
   max-width: 100%;
   display: flex;
@@ -149,7 +150,7 @@ body {
 
 header {
   width: 100%;
-  position: absolute;
+  position: fixed;
 }
 
 header nav .top-bar {
@@ -173,7 +174,8 @@ i {
 
 .menu {
   overflow: hidden;
-  position: absolute;
+  position: fixed;
+  z-index: 99;
   width: 100%;
   padding: 0;
   display: flex;
@@ -185,11 +187,10 @@ i {
 
 .menu li {
   background: white;
-  z-index: 90;
 }
 
 .open {
-  top: 100%;
+  top: 50px;
 }
 
 .menu a {
@@ -207,27 +208,31 @@ i {
 
 .mobile-logo:hover,
 .menu-trigger:hover,
-li:hover {
+.nav-items:hover {
   opacity: 0.6;
 }
 
 main {
   position: relative;
+  z-index: -1;
   transition: top 0.5s ease-out;
   top: 0;
-}
-
-main slider {
-}
-
-.slider-images {
-  width: 100%;
+  margin-top: 50px;
 }
 
 .slide-down {
   top: 290px;
   transition: top 0.5s ease-out;
 }
+
+/**************** SLIDER ******************/
+
+.slider-images {
+  width: 100%;
+  position: relative;
+  /* display: none; */
+}
+
 /* header {
   font-size: 19px;
   font-family: "Roboto";
