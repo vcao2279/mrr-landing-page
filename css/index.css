@@ -273,14 +273,14 @@ main {
   font-family: "Roboto", sans-serif;
   font-style: italic;
   font-weight: 500;
-  font-size: 1.62vw;
+  font-size: 1.7vw;
   top: 10.15vw;
   left: 11.3vw;
 }
 
 /**************** FEATURE BOXES ******************/
 .features {
-  width: 100%;
+  width: 98%;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
@@ -290,18 +290,56 @@ main {
   position: relative;
   width: 50%;
   padding: 0;
+  margin: 0;
+}
+
+.feature:hover {
+  opacity: 0.6;
+  cursor: pointer;
 }
 
 .feature-text {
   position: absolute;
-  font-size: 1.85vw;
+  font-size: 3vw;
   font-weight: 400;
   font-style: italic;
-  top: 1.23vw;
-  left: 1.2vw;
+  top: 1.5vw;
+  left: 1.5vw;
   color: white;
 }
 
 .features img {
   width: 100%;
+}
+
+/**************** FOOTER ******************/
+.media {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.media > section {
+  padding: 15px 15px;
+  border-bottom: 1px solid gray;
+}
+
+.mrr-news > p {
+  font-family: Arial, sans-serif;
+  font-size: 1.3rem;
+  color: #333333;
+}
+
+.mrr-news > a {
+  font-size: 1.3rem;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+}
+
+.media h3 {
+  font-size: 3.5vw;
+  font-weight: 700;
+  font-style: italic;
 }
