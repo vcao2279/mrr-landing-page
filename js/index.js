@@ -1,9 +1,7 @@
 // Script for toggling menu button
 const hamburger = document.querySelector(".top-bar i");
 const menu = document.querySelector(".menu");
-const hamburgerIcon = "fa-bars fa-lg";
 const main = document.querySelector("main");
-const closeIcon = "fas fa-times fa-lg";
 
 hamburger.addEventListener("click", () => {
   menu.classList.toggle("open");

@@ -136,7 +136,8 @@ html {
   font-size: 62.5%;
 }
 
-/* MOBILE VIEW */
+/*=============== MOBILE VIEW ============ */
+
 /**************** HEADER ******************/
 body {
   max-width: 100%;
@@ -166,7 +167,7 @@ header nav .top-bar {
 }
 
 .mobile-logo {
-  width: 60%;
+  width: 40%;
 }
 
 i {
@@ -217,11 +218,11 @@ main {
   position: relative;
   transition: top 0.5s ease;
   top: 0;
-  margin-top: 50px;
+  margin-top: 49px;
 }
 
 .slide-down {
-  top: 340px;
+  top: 335px;
   transition: top 0.5s ease;
 }
 
@@ -352,19 +353,23 @@ main {
 }
 
 .brands {
+  margin: 20px 0;
+}
+
+.top-row,
+.bottom-row {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin: 20px 0;
+  margin: 15px 0;
 }
 
 .brands > p {
   margin-bottom: 10px;
 }
 
-.brands > img {
-  margin: 0 20px;
+.brands img {
+  margin: 0 3.5vw;
 }
 
 .special-text {
@@ -382,6 +387,7 @@ main {
 .social-media .icons i,
 .social-media .icons svg {
   color: #333333;
+  margin: 0 5px;
 }
 
 .fb-placeholder-img {
@@ -431,7 +437,12 @@ footer .links {
 footer a {
   color: #989898;
   text-decoration: none;
-  margin: 0 15px;
+  /* padding: 0 15px; */
+}
+
+footer a + a:before {
+  content: " | ";
+  padding: 15px;
 }
 
 footer a:hover {
@@ -440,4 +451,36 @@ footer a:hover {
 
 footer .copyright {
   font-size: 2.5vw;
+}
+
+/*=============== TABLET PORTRAIT VIEW ============ */
+@media (min-width: 600px) {
+  .mobile-logo {
+    width: 60%;
+  }
+
+  .menu-trigger {
+    font-size: 2.5rem;
+  }
+
+  .open {
+    top: 59px;
+  }
+
+  main {
+    position: relative;
+    transition: top 0.5s ease;
+    top: 0;
+    margin-top: 59px;
+  }
+
+  .slide-down {
+    top: 335px;
+    transition: top 0.5s ease;
+  }
+
+  .fb-placeholder-img {
+    width: 100%;
+    margin: 35px 0;
+  }
 }
