@@ -190,7 +190,7 @@ i {
 }
 
 .open {
-  top: 50px;
+  top: 49px;
 }
 
 .menu a {
@@ -321,25 +321,77 @@ main {
 
 .media > section {
   padding: 15px 15px;
-  border-bottom: 1px solid gray;
+  border-bottom: 0.5px solid #b2b2b2;
 }
 
-.mrr-news > p {
+.media p {
   font-family: Arial, sans-serif;
-  font-size: 1.3rem;
-  color: #333333;
+  font-size: 2vw;
+  color: #989898;
+  margin: 10px 0;
 }
 
-.mrr-news > a {
-  font-size: 1.3rem;
+.media a {
+  font-size: 2vw;
   font-family: Arial, sans-serif;
   font-weight: bold;
   text-decoration: none;
-  color: black;
+  color: #383838;
 }
 
 .media h3 {
-  font-size: 3.5vw;
+  font-size: 3vw;
   font-weight: 700;
   font-style: italic;
+  margin: 10px 0;
+  color: #383838;
+}
+
+.brands {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.brands > p {
+  margin-bottom: 10px;
+}
+
+.brands > img {
+  margin: 0 20px;
+}
+
+.special-text {
+  font-weight: bold;
+  font-style: italic;
+  color: #696969;
+}
+
+.social-media {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.social-media .icons i,
+.social-media .icons svg {
+  color: #333333;
+}
+
+.fb-placeholder-img {
+  width: 100%;
+  margin: 15px 0;
+}
+
+#like-text {
+  font-size: 2.5vw;
+  margin: 0;
+}
+
+#fb-link {
+  margin: 0;
+  font-size: 2vw;
+  color: #989898;
 }
