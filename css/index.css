@@ -320,7 +320,7 @@ main {
 }
 
 .media > section {
-  padding: 15px 15px;
+  padding: 15px 15px 25px;
   border-bottom: 0.5px solid #b2b2b2;
 }
 
@@ -337,6 +337,10 @@ main {
   font-weight: bold;
   text-decoration: none;
   color: #383838;
+}
+
+.media a:hover {
+  opacity: 0.6;
 }
 
 .media h3 {
@@ -394,4 +398,46 @@ main {
   margin: 0;
   font-size: 2vw;
   color: #989898;
+}
+
+#find-dealer-btn {
+  color: #989898;
+}
+
+#search-btn {
+  padding: 10px;
+  background: #989898;
+  color: white;
+  border-radius: 100px;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 2.5vw;
+  text-align: center;
+  margin: 15px 0;
+  color: #989898;
+}
+
+footer .links {
+  width: 100%;
+  display: flex;
+  margin-bottom: 15px;
+}
+
+footer a {
+  color: #989898;
+  text-decoration: none;
+  margin: 0 15px;
+}
+
+footer a:hover {
+  opacity: 0.6;
+}
+
+footer .copyright {
+  font-size: 2.5vw;
 }
