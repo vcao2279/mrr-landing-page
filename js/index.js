@@ -1,3 +1,4 @@
+// Script for toggling menu button
 const hamburger = document.querySelector(".top-bar i");
 const menu = document.querySelector(".menu");
 const hamburgerIcon = "fa-bars fa-lg";
@@ -12,7 +13,9 @@ hamburger.addEventListener("click", () => {
     : hamburger.classList.replace("fa-times", "fa-bars");
 });
 
-const slides = document.querySelectorAll(".slider-images");
+// Script for slider
+
+const slides = document.querySelectorAll(".slide-container");
 let currentSlide = 0;
 slides[currentSlide].classList.add("showing");
 let slideInterval = setInterval(nextSlide, 3000);
@@ -22,3 +25,14 @@ function nextSlide() {
   currentSlide = (currentSlide + 1) % slides.length;
   slides[currentSlide].classList.add("showing");
 }
+
+// Script to change height of slider dynamically
+const slider = document.querySelector(".slider");
+const images = document.querySelectorAll(".slide-image");
+let imgHeight = images[0].height;
+slider.style.height = `${imgHeight}px`;
+
+window.addEventListener("resize", () => {
+  imgHeight = images[0].height;
+  slider.style.height = `${imgHeight}px`;
+});
