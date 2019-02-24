@@ -221,10 +221,12 @@ i {
 }
 
 main {
+  width: 99.9%;
   position: relative;
   transition: top 0.5s ease;
   top: 0;
   margin-top: 49px;
+  margin: auto;
 }
 
 .slide-down {
@@ -266,8 +268,8 @@ main {
 
 .controls {
   position: absolute;
-  bottom: 1vw;
-  right: 5vw;
+  bottom: 5px;
+  right: 20px;
 }
 
 .controls > i {
@@ -493,10 +495,8 @@ footer a:hover {
 
   /**************** SLIDER ******************/
   main {
-    position: relative;
-    transition: top 0.5s ease;
-    top: 0;
     margin-top: 59px;
+    width: 100%;
   }
 
   .slide-down {
@@ -508,6 +508,11 @@ footer a:hover {
   .fb-placeholder-img {
     width: 100%;
     margin: 35px 0;
+  }
+
+  .controls {
+    bottom: 1vw;
+    right: 5vw;
   }
 }
 
