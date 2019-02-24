@@ -11,37 +11,6 @@ hamburger.addEventListener("click", () => {
     : hamburger.classList.replace("fa-times", "fa-bars");
 });
 
-// Script for slider
-const slides = document.querySelectorAll(".slide-container");
-let currentSlide = 0;
-let timer;
-slides[currentSlide].classList.add("showing");
-let slideInterval = () => {
-  if (timer) {
-    clearInterval(timer);
-    timer = null;
-  } else {
-    timer = setInterval(nextSlide, 3000);
-  }
-  return false;
-};
-
-function nextSlide() {
-  slides[currentSlide].classList.remove("showing");
-  currentSlide = (currentSlide + 1) % slides.length;
-  slides[currentSlide].classList.add("showing");
-}
-
-function lastSlide() {
-  slides[currentSlide].classList.remove("showing");
-  currentSlide = currentSlide - 1 < 0 ? slides.length - 1 : currentSlide - 1;
-  slides[currentSlide].classList.add("showing");
-}
-
-window.onload = function() {
-  slideInterval();
-};
-
 // Script to change height of slider dynamically
 const slider = document.querySelector(".slider");
 const images = document.querySelectorAll(".slide-image");
@@ -53,35 +22,100 @@ window.addEventListener("resize", () => {
   slider.style.height = `${imgHeight}px`;
 });
 
-// Script to controls slider
-const startstop = document.querySelector(".startstop");
-const next = document.querySelector(".next");
-const prev = document.querySelector(".prev");
-const pause = "fa-pause";
-const play = "fa-play";
+// Script for slider
+class Slider {
+  constructor() {
+    this.currentSlide = 0;
 
-startstop.addEventListener("click", () => {
-  startstop.classList.contains(pause)
-    ? startstop.classList.replace(pause, play)
-    : startstop.classList.replace(play, pause);
+    // Create variable to hold setInterval
+    this.timer = null;
 
-  slideInterval();
-});
+    // Create array of Image objects
+    this.slides = document.querySelectorAll(".slide-container");
+    this.slides = Array.from(this.slides).map(slide => new Image(slide));
 
-next.addEventListener("click", () => {
-  nextSlide();
-  if (timer) {
-    clearInterval(timer);
-    timer = null;
+    // Create Control Button Objects
+    this.startStopBtn = document.querySelector(".startstop");
+    this.nextBtn = document.querySelector(".next");
+    this.prevBtn = document.querySelector(".prev");
+
+    // Current active image;
+    this.active = this.slides[this.currentSlide];
   }
-  startstop.classList.replace(pause, play);
-});
 
-prev.addEventListener("click", () => {
-  lastSlide();
-  if (timer) {
-    clearInterval(timer);
-    timer = null;
+  init = () => {
+    this.slideInterval();
+
+    const pause = "fa-pause";
+    const play = "fa-play";
+
+    this.startStopBtn.addEventListener("click", () => {
+      this.startStopBtn.classList.contains(pause)
+        ? this.startStopBtn.classList.replace(pause, play)
+        : this.startStopBtn.classList.replace(play, pause);
+
+      this.slideInterval();
+    });
+
+    this.nextBtn.addEventListener("click", () => {
+      this.next();
+      if (this.timer) {
+        clearInterval(this.timer);
+        this.timer = null;
+      }
+      this.startStopBtn.classList.replace(pause, play);
+    });
+
+    this.prevBtn.addEventListener("click", () => {
+      this.previous();
+      if (this.timer) {
+        clearInterval(this.timer);
+        this.timer = null;
+      }
+      this.startStopBtn.classList.replace(pause, play);
+    });
+  };
+
+  slideInterval = () => {
+    if (this.timer) {
+      clearInterval(this.timer);
+      this.timer = null;
+    } else {
+      this.timer = setInterval(this.next, 3000);
+    }
+  };
+
+  next = () => {
+    this.active.deselect();
+    this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+    this.active = this.slides[this.currentSlide];
+    this.active.select();
+  };
+
+  previous = () => {
+    this.active.deselect();
+    this.currentSlide =
+      this.currentSlide - 1 < 0
+        ? this.slides.length - 1
+        : this.currentSlide - 1;
+    this.active = this.slides[this.currentSlide];
+    this.active.select();
+  };
+}
+
+class Image {
+  constructor(el) {
+    this.el = el;
   }
-  startstop.classList.replace(pause, play);
-});
+
+  select = () => {
+    this.el.classList.add("showing");
+  };
+
+  deselect = () => {
+    this.el.classList.remove("showing");
+  };
+}
+
+const slideshow = new Slider();
+slideshow.init();
