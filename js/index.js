@@ -22,7 +22,6 @@ let slideInterval = () => {
     timer = null;
   } else {
     timer = setInterval(nextSlide, 3000);
-    console.log("start");
   }
   return false;
 };

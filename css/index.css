@@ -478,6 +478,7 @@ footer a:hover {
 
 /*=============== TABLET PORTRAIT VIEW ============ */
 @media (min-width: 600px) {
+  /**************** HEADER ******************/
   .mobile-logo {
     width: 60%;
   }
@@ -490,6 +491,7 @@ footer a:hover {
     top: 59px;
   }
 
+  /**************** SLIDER ******************/
   main {
     position: relative;
     transition: top 0.5s ease;
@@ -502,6 +504,7 @@ footer a:hover {
     transition: top 0.5s ease;
   }
 
+  /**************** FEATURE BOXES ******************/
   .fb-placeholder-img {
     width: 100%;
     margin: 35px 0;
@@ -687,16 +690,9 @@ footer a:hover {
     font-size: 1vw;
   }
 
-  .copyright {
-    width: 50%;
-  }
-
   .copyright p {
     margin: 0;
     display: inline-block;
-  }
-
-  .copyright {
   }
 
   .links {
