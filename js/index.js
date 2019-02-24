@@ -33,6 +33,12 @@ function nextSlide() {
   slides[currentSlide].classList.add("showing");
 }
 
+function lastSlide() {
+  slides[currentSlide].classList.remove("showing");
+  currentSlide = currentSlide - 1 < 0 ? slides.length - 1 : currentSlide - 1;
+  slides[currentSlide].classList.add("showing");
+}
+
 window.onload = function() {
   slideInterval();
 };
@@ -65,6 +71,15 @@ startstop.addEventListener("click", () => {
 
 next.addEventListener("click", () => {
   nextSlide();
+  if (timer) {
+    clearInterval(timer);
+    timer = null;
+  }
+  startstop.classList.replace(pause, play);
+});
+
+prev.addEventListener("click", () => {
+  lastSlide();
   if (timer) {
     clearInterval(timer);
     timer = null;
