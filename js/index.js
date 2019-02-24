@@ -12,17 +12,30 @@ hamburger.addEventListener("click", () => {
 });
 
 // Script for slider
-
 const slides = document.querySelectorAll(".slide-container");
 let currentSlide = 0;
+let timer;
 slides[currentSlide].classList.add("showing");
-let slideInterval = setInterval(nextSlide, 3000);
+let slideInterval = () => {
+  if (timer) {
+    clearInterval(timer);
+    timer = null;
+  } else {
+    timer = setInterval(nextSlide, 3000);
+    console.log("start");
+  }
+  return false;
+};
 
 function nextSlide() {
   slides[currentSlide].classList.remove("showing");
   currentSlide = (currentSlide + 1) % slides.length;
   slides[currentSlide].classList.add("showing");
 }
+
+window.onload = function() {
+  slideInterval();
+};
 
 // Script to change height of slider dynamically
 const slider = document.querySelector(".slider");
@@ -33,4 +46,28 @@ slider.style.height = `${imgHeight}px`;
 window.addEventListener("resize", () => {
   imgHeight = images[0].height;
   slider.style.height = `${imgHeight}px`;
+});
+
+// Script to controls slider
+const startstop = document.querySelector(".startstop");
+const next = document.querySelector(".next");
+const prev = document.querySelector(".prev");
+const pause = "fa-pause";
+const play = "fa-play";
+
+startstop.addEventListener("click", () => {
+  startstop.classList.contains(pause)
+    ? startstop.classList.replace(pause, play)
+    : startstop.classList.replace(play, pause);
+
+  slideInterval();
+});
+
+next.addEventListener("click", () => {
+  nextSlide();
+  if (timer) {
+    clearInterval(timer);
+    timer = null;
+  }
+  startstop.classList.replace(pause, play);
 });

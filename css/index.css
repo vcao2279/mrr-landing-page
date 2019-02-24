@@ -242,10 +242,6 @@ main {
 .slide-container {
   opacity: 0;
   z-index: 1;
-
-  -webkit-transition: opacity 1.5s;
-  -moz-transition: opacity 1.5s;
-  -o-transition: opacity 1.5s;
   transition: opacity 1.5s;
 }
 
@@ -266,6 +262,21 @@ main {
   z-index: 3;
   color: white;
   letter-spacing: -0.5px;
+}
+
+.controls {
+  position: absolute;
+  bottom: 1vw;
+  right: 5vw;
+}
+
+.controls > i {
+  font-size: 1vw;
+  color: white;
+}
+
+.controls i + i {
+  margin-left: 10px;
 }
 
 .main {
@@ -590,6 +601,7 @@ footer a:hover {
   .media .mrr-design {
     width: 30%;
     padding-right: 10px;
+    margin-left: -20px;
   }
 
   .media .mrr-social-media {
