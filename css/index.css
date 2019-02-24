@@ -147,6 +147,8 @@ body {
   color: black;
   font-family: "Roboto", sans-serif;
   line-height: 1.5;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 header {
@@ -155,12 +157,16 @@ header {
   z-index: 90;
 }
 
-header nav .top-bar {
+.nav-items {
+  display: none;
+}
+
+.top-bar {
   display: flex;
   z-index: 99;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 15px 10px 15px;
+  padding: 20px 15px 5px 15px;
   border-bottom: 1px solid #e8e9eb;
   position: relative;
   background: white;
@@ -210,7 +216,7 @@ i {
 
 .mobile-logo:hover,
 .menu-trigger:hover,
-.nav-items:hover {
+.menu-items:hover {
   opacity: 0.6;
 }
 
@@ -229,7 +235,7 @@ main {
 /**************** SLIDER ******************/
 .slider {
   position: relative;
-  width: 100vw;
+  width: 100%;
   margin-bottom: 5px;
 }
 
@@ -259,6 +265,7 @@ main {
   position: absolute;
   z-index: 3;
   color: white;
+  letter-spacing: -0.5px;
 }
 
 .main {
@@ -266,8 +273,8 @@ main {
   font-style: italic;
   font-weight: 300;
   font-size: 3.54vw;
-  top: 6.3vw;
-  left: 11.3vw;
+  top: 5vw;
+  left: 11vw;
 }
 
 .sub {
@@ -275,13 +282,13 @@ main {
   font-style: italic;
   font-weight: 500;
   font-size: 1.7vw;
-  top: 10.15vw;
-  left: 11.3vw;
+  top: 9.3vw;
+  left: 11vw;
 }
 
 /**************** FEATURE BOXES ******************/
 .features {
-  width: 98%;
+  width: 100%;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
@@ -369,7 +376,7 @@ main {
 }
 
 .brands img {
-  margin: 0 3.5vw;
+  margin: 0 5vw;
 }
 
 .special-text {
@@ -437,7 +444,6 @@ footer .links {
 footer a {
   color: #989898;
   text-decoration: none;
-  /* padding: 0 15px; */
 }
 
 footer a + a:before {
@@ -484,3 +490,74 @@ footer .copyright {
     margin: 35px 0;
   }
 }
+
+/*=============== TABLET LANDSCAPE VIEW ============ */
+
+@media (min-width: 900px) {
+  /**************** HEADER ******************/
+  header {
+    height: 75px;
+  }
+
+  nav,
+  article {
+    height: 100%;
+  }
+
+  main {
+    margin-top: 75px;
+  }
+
+  .slide-down {
+    top: 0px;
+  }
+
+  .menu,
+  .top-bar i {
+    display: none;
+  }
+
+  .top-bar {
+    padding: 1vw 0vw 0.5vw;
+  }
+
+  .mobile-logo {
+    width: 18vw;
+  }
+
+  .nav-items {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    margin-left: 6.3vw;
+  }
+
+  .nav-items.left {
+    position: relative;
+    left: 3.5vw;
+  }
+
+  .nav-items a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.4vw;
+    margin-right: 2.8vw;
+  }
+
+  .slider {
+    margin-bottom: 3px;
+  }
+
+  /**************** FEATUER BOXES ******************/
+  .feature {
+    width: 25%;
+  }
+
+  .feature-text {
+    font-size: 1.8vw;
+    top: 0.5vw;
+    left: 0.5vw;
+  }
+}
+
+/*=============== TABLET DESKTOP VIEW ============ */
